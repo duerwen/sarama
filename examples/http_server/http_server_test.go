@@ -95,7 +95,7 @@ func TestWrongPath(t *testing.T) {
 	}
 	res := httptest.NewRecorder()
 
-	s.Handler().ServeHTTP(res, req)
+	s.Handler().ServeHTTP(res, req) //Invokes the handler by calling its ServeHTTP method, passing in the Request and ResponseWriter
 
 	if res.Code != 404 {
 		t.Errorf("Expected HTTP status 404, found %d", res.Code)
