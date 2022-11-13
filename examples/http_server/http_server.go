@@ -202,7 +202,7 @@ func newDataCollector(brokerList []string) sarama.SyncProducer {
 
 	// On the broker side, you may want to change the following settings to get
 	// stronger consistency guarantees:
-	// - For your broker, set `unclean.leader.election.enable` to false
+	// - For your broker, set `unclean.leader.election.enable` to false,表示当leader副本挂掉之后，选举新的副本时不允许使用非isr中的副本
 	// - For the topic, you could increase `min.insync.replicas`.
 
 	producer, err := sarama.NewSyncProducer(brokerList, config)
